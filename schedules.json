@@ -2,7 +2,7 @@
  {
   "slug": "f1",
   "name": "ISFY Funnel 1: The Dead List",
-  "updated": "2026-11-24T08:16:45Z",
+  "updated": "2026-11-24T13:11:32Z",
   "updated_label": "24 Nov 2026",
   "film": {
    "total": 378,
@@ -11,6 +11,20 @@
   },
   "copy": {
    "sets": 66
+  }
+ },
+ {
+  "slug": "f2",
+  "name": "ISFY Funnel 2: Beat Your Agency",
+  "updated": "2026-11-24T13:11:32Z",
+  "updated_label": "24 Nov 2026",
+  "film": {
+   "total": 270,
+   "clips": 27,
+   "time": "1 h 23 min"
+  },
+  "copy": {
+   "sets": 20
   }
  }
 ]

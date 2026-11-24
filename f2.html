@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Shooting schedule</title>
+<style>
+:root{--paper:#eef1f3;--surface:#fff;--ink:#141a20;--muted:#55616d;--line:#cdd5db;--slate:#141a20;--slate-ink:#f3f5f6;--slate-muted:#a3aeb8;--slate-line:#2c3640;--accent:#f0bf2c;--accent-ink:#1a1503;--hook:#b4470f;--body:#1e56c9;--cta:#18794a;--niche:#7a2fb8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif}
+button{font:inherit;cursor:pointer}
+.hdr{background:var(--slate);color:var(--slate-ink);padding:16px}
+.in{max-width:980px;margin:0 auto}
+h1{font-size:24px;margin:0 0 6px;font-weight:800}
+.hero b{font-size:34px;font-weight:800}
+.hero span{color:var(--slate-muted)}
+.hint{color:var(--slate-muted);max-width:70ch;margin:8px 0 14px}
+.btn{border:1px solid var(--slate-line);background:transparent;color:var(--slate-ink);border-radius:6px;padding:9px 16px;font-weight:600}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:disabled{opacity:.45;cursor:default}
+main{padding:16px 16px 60px}
+h3{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:18px 0 8px}
+.sess{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:14px}
+.sess-h{background:var(--slate);color:var(--slate-ink);padding:9px 14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;align-items:center}
+.sess-h b{font-size:16px}
+.sess-h span.n{font-size:13px;color:var(--slate-muted)}
+.tag{font:600 12.5px/1 ui-monospace,Consolas,monospace;background:var(--accent);color:var(--accent-ink);padding:4px 6px;border-radius:3px;margin-right:8px}
+.clip{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:10px;padding:9px 14px;border-top:1px dashed var(--line);align-items:start;cursor:pointer}
+.clip input{margin-top:6px;width:18px;height:18px;accent-color:var(--cta)}
+.chip{font:600 12.5px/1 ui-monospace,Consolas,monospace;padding:6px 7px;border-radius:4px;border:1px solid currentColor;white-space:nowrap;margin-top:3px}
+.chip.H{color:var(--hook)}.chip.B{color:var(--body)}.chip.C{color:var(--cta)}.chip.N{color:var(--niche)}
+.txt{font-family:Georgia,"Times New Roman",serif;font-size:15.5px;white-space:pre-wrap;overflow-wrap:anywhere}
+.clip.done .txt{color:var(--muted);text-decoration:line-through}
+.fn,.into{font-size:12.5px;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
+.into b{color:var(--body)}
+.film{position:fixed;top:0;right:0;bottom:0;left:0;background:var(--slate);color:var(--slate-ink);display:flex;flex-direction:column}
+.film[hidden]{display:none}
+.bar{height:5px;background:var(--slate-line)}
+.bar i{display:block;height:100%;background:var(--accent)}
+.film-top,.film-bot{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;padding:12px 16px}
+.film-top{border-bottom:1px solid var(--slate-line)}
+.film-bot{border-top:1px solid var(--slate-line)}
+.where{font-weight:600;font-size:16px}
+.where em{font-style:normal;color:var(--accent)}
+.small{font-size:13px;color:var(--slate-muted)}
+.film-mid{flex:1 1 auto;overflow:auto;padding:22px 16px;display:flex;justify-content:center}
+.film-card{max-width:900px;width:100%}
+.big{display:inline-block;font-size:30px;font-weight:800;background:var(--accent);color:var(--accent-ink);padding:4px 10px;border-radius:4px;margin-right:10px}
+.film-text{font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,3.4vw,38px);line-height:1.35;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:16px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--slate-line);border-radius:7px;overflow:hidden;margin:0 0 12px}
+.seg[hidden]{display:none}
+.seg button{appearance:none;background:transparent;border:0;color:var(--slate-muted);padding:7px 12px;font-weight:600}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.vnote{color:var(--slate-muted);font-size:13px;margin:-6px 0 12px}
+.vnote[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="hdr"><div class="in">
+  <h1 id="name"></h1>
+  <div class="hero"><b id="total"></b> <span id="sub"></span></div>
+  <p class="hint">Bodies and CTAs come first, then hooks, grouped by where you film them. Press Start filming and read each clip off the screen. Say the clip ID out loud before every take so the editor can match the files. Your ticks are remembered in this browser.</p>
+  <div class="seg" id="vers" role="group" aria-label="Version" hidden></div>
+  <p class="vnote" id="vnote" hidden>Platform versions are reworded to lower the risk of ad rejection on that network. They are not a guarantee of approval.</p>
+  <button class="btn primary" id="start" type="button">Start filming</button>
+</div></div>
+<main><div class="in" id="list"></div></main>
+<div class="film" id="film" hidden>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="film-top"><div class="where" id="where"></div><div class="row"><span class="small" id="count"></span><button class="btn" id="close" type="button">Close</button></div></div>
+  <div class="film-mid"><div class="film-card"><div><span class="big" id="fid"></span><span class="small" id="ffile"></span></div><div class="film-text" id="ftext"></div></div></div>
+  <div class="film-bot"><div class="row"><button class="btn" id="back" type="button">Back</button><button class="btn" id="skip" type="button">Skip</button></div><button class="btn primary" id="next" type="button">Filmed. Next clip</button></div>
+</div>
+<script>
+(function(){
+var D={"name":"ISFY Funnel 2: Beat Your Agency","code":"F2","presenter":"Rohan","total":270,"time":"1 h 23 min","versions":[{"id":"orig","label":"Original"},{"id":"meta","label":"Meta version"}],"groups":[{"part":1,"chip":"A","setup":"Desk, straight to camera","clips":[{"key":"B1-A","type":"B","label":"B1","sub":"Pick your metric (from Ad 1)","text":"Here's how it works.\n\nI want you to pick the one metric you believe is the real judge of success for your business.\n\nMaybe it's ROAS... maybe it's cost per booked call... or maybe it's cost per new customer.\n\nWhatever it is, I'll beat your current agency on that number by at least 15% in the next 30 days, or you don't give me a single red cent.\n\nThat goes for any founder spending fifty thousand dollars or more a month on Meta.\n\nMy name's Rohan Sheth, co-founder of GrowRev. We've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, managed over 400 million dollars in ad spend, and helped our clients bring in more than two billion dollars in revenue.\n\nEvery agency out there says they're the best.\n\nI'm the only one daring you to make me prove it.","into":"","file":"F2_B1_A","alt":{"meta":"Here's how it works.\n\nI want founders to pick the one metric they believe is the real judge of success for their business.\n\nMaybe it's ROAS... maybe it's cost per booked call... or maybe it's cost per new customer.\n\nWhatever it is, our guarantee is that we'll beat the current agency on that number by at least 15% in the next 30 days, or you don't give me a single red cent.\n\nThat goes for any founder spending fifty thousand dollars or more a month on Meta.\n\nMy name's Rohan Sheth, co-founder of GrowRev. We've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, managed over 400 million dollars in ad spend, and helped our clients bring in more than two billion dollars in revenue.\n\nEvery agency out there says they're the best.\n\nI'm the only one inviting founders to make me prove it."}},{"key":"B2-A","type":"B","label":"B2","sub":"How the fight works (from Ad 2)","text":"If you're a founder spending fifty thousand dollars or more a month on Meta, here's how the fight works.\n\nYou pick the one number that matters most to your business. Maybe it's your return on ad spend, your cost per booked call, or your cost per new customer.\n\nThen give me 30 days. I'll beat your current agency on that number by at least 15%, or you don't pay me a dime.\n\nMy name's Rohan Sheth, co-founder of GrowRev. We've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, and managed over 400 million dollars in ad spend.","into":"","file":"F2_B2_A","alt":{"meta":"For founders spending fifty thousand dollars or more a month on Meta, here's how the fight works.\n\nPick the one number that matters most to the business. Maybe it's return on ad spend, cost per booked call, or cost per new customer.\n\nThen give me 30 days. Our guarantee is that we'll beat the current agency on that number by at least 15%, or you don't pay me a dime.\n\nMy name's Rohan Sheth, co-founder of GrowRev. We've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, and managed over 400 million dollars in ad spend."}},{"key":"C1-A","type":"C","label":"C1","sub":"","text":"So go ahead. Click below and put us to the test.","into":"","file":"F2_C1_A"},{"key":"C2-A","type":"C","label":"C2","sub":"","text":"So who's next? Click below and put us to the test.","into":"","file":"F2_C2_A"},{"key":"C3-A","type":"C","label":"C3","sub":"","text":"Want to see what's on the other side? Click below and put us to the test.","into":"","file":"F2_C3_A","alt":{"meta":"Curious what's on the other side? Click below and put us to the test."}}]},{"part":1,"chip":"B","setup":"Whiteboard","clips":[{"key":"B3-B","type":"B","label":"B3","sub":"The scaling ceiling (from Primary Copy 4)","text":"Here's how it usually goes.\n\nYou find a winner, pour more budget behind it, and for a hot minute it's printing money.\n\nThen costs climb, results slide, and it's back to the drawing board.\n\nThat's the scaling ceiling.\n\nAnd agency after agency swears they're the one who'll finally break through it.\n\nI'm not going to swear anything. I'm going to prove it.\n\nPick the one number that matters most to your business, like your ROAS, your cost per booked call, or your cost per new customer.\n\nMy team will beat your current agency on it by at least 15%, or you don't pay us a dime.\n\nMy name's Rohan Sheth, co-founder of GrowRev.\n\nWe've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, and helped our clients bring in more than $2 billion in revenue.","into":"","file":"F2_B3_B","alt":{"meta":"Here's how it usually goes for many advertisers.\n\nA winner gets found, more budget gets poured behind it, and for a hot minute it's performing great.\n\nThen costs climb, results slide, and it's back to the drawing board.\n\nThat's the scaling ceiling.\n\nAnd agency after agency swears they're the one who'll finally break through it.\n\nI'm not going to swear anything. I'm going to prove it.\n\nPick the one number that matters most to the business, like ROAS, cost per booked call, or cost per new customer.\n\nOur guarantee is that my team will beat the current agency on it by at least 15%, or you don't pay us a dime.\n\nMy name's Rohan Sheth, co-founder of GrowRev.\n\nWe've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, and helped our clients bring in more than $2 billion in revenue."}},{"key":"C1-B","type":"C","label":"C1","sub":"","text":"So go ahead. Click below and put us to the test.","into":"","file":"F2_C1_B"},{"key":"C2-B","type":"C","label":"C2","sub":"","text":"So who's next? Click below and put us to the test.","into":"","file":"F2_C2_B"},{"key":"C3-B","type":"C","label":"C3","sub":"","text":"Want to see what's on the other side? Click below and put us to the test.","into":"","file":"F2_C3_B","alt":{"meta":"Curious what's on the other side? Click below and put us to the test."}}]},{"part":2,"chip":"S1","setup":"Desk, straight to camera","clips":[{"key":"H01-S1","type":"H","label":"H01","sub":"","text":"I run one of the most successful performance marketing companies in the world, and I am BEGGING you not to give me your money... until I beat your current agency over the next 30 days.","into":"B1 · Pick your metric (from Ad 1)","file":"F2_H01_S1","alt":{"meta":"I run a performance marketing company, and I am asking founders not to give me their money... until I beat the current agency over the next 30 days."}},{"key":"H05-S1","type":"H","label":"H05","sub":"","text":"Is your agency really the best? Find out without firing anyone.","into":"B2 · How the fight works (from Ad 2)","file":"F2_H05_S1","alt":{"meta":"For those wondering if their agency is really the best: find out without firing anyone."}},{"key":"N01-S1","type":"N","label":"N01","sub":"Coaches","text":"Coaches: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N01_S1","alt":{"meta":"For coaches spending fifty thousand dollars or more a month on Meta"}},{"key":"N02-S1","type":"N","label":"N02","sub":"Course creators","text":"Course creators: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N02_S1","alt":{"meta":"For course creators spending fifty thousand dollars or more a month on Meta"}},{"key":"N03-S1","type":"N","label":"N03","sub":"Financial educators","text":"Financial educators: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N03_S1","alt":{"meta":"For financial educators spending fifty thousand dollars or more a month on Meta"}},{"key":"N04-S1","type":"N","label":"N04","sub":"Ecommerce brands","text":"Ecommerce brands: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N04_S1","alt":{"meta":"For ecommerce brands spending fifty thousand dollars or more a month on Meta"}}]},{"part":2,"chip":"S2","setup":"Whiteboard","clips":[{"key":"H03-S2","type":"H","label":"H03","sub":"","text":"Spending $50K+ a month on Meta? I'll beat your agency in 30 days.","into":"B2 · How the fight works (from Ad 2)","file":"F2_H03_S2","alt":{"meta":"For founders spending $50K+ a month on Meta: we'll beat the current agency in 30 days, or you pay nothing."}},{"key":"H06-S2","type":"H","label":"H06","sub":"","text":"Why does every winning ad fall apart the second you scale it?","into":"B3 · The scaling ceiling (from Primary Copy 4)","file":"F2_H06_S2","alt":{"meta":"For those wondering why every winning ad falls apart the second it scales."}},{"key":"N01-S2","type":"N","label":"N01","sub":"Coaches","text":"Coaches: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N01_S2","alt":{"meta":"For coaches spending fifty thousand dollars or more a month on Meta"}},{"key":"N02-S2","type":"N","label":"N02","sub":"Course creators","text":"Course creators: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N02_S2","alt":{"meta":"For course creators spending fifty thousand dollars or more a month on Meta"}},{"key":"N03-S2","type":"N","label":"N03","sub":"Financial educators","text":"Financial educators: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N03_S2","alt":{"meta":"For financial educators spending fifty thousand dollars or more a month on Meta"}},{"key":"N04-S2","type":"N","label":"N04","sub":"Ecommerce brands","text":"Ecommerce brands: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N04_S2","alt":{"meta":"For ecommerce brands spending fifty thousand dollars or more a month on Meta"}}]},{"part":2,"chip":"S3","setup":"Walking selfie","clips":[{"key":"H02-S3","type":"H","label":"H02","sub":"","text":"I run one of the best performance marketing companies in the world, and I'm going around taking on agencies one fight at a time, just to prove how much better we are.","into":"B2 · How the fight works (from Ad 2)","file":"F2_H02_S3","alt":{"meta":"I run a performance marketing company, and I'm going around taking on agencies one fight at a time, just to prove how much better we are."}},{"key":"H04-S3","type":"H","label":"H04","sub":"","text":"Please don't give me your money... until I've beaten your agency.","into":"B1 · Pick your metric (from Ad 1)","file":"F2_H04_S3","alt":{"meta":"Please don't give me money... until I've beaten the agency."}},{"key":"N01-S3","type":"N","label":"N01","sub":"Coaches","text":"Coaches: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N01_S3","alt":{"meta":"For coaches spending fifty thousand dollars or more a month on Meta"}},{"key":"N02-S3","type":"N","label":"N02","sub":"Course creators","text":"Course creators: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N02_S3","alt":{"meta":"For course creators spending fifty thousand dollars or more a month on Meta"}},{"key":"N03-S3","type":"N","label":"N03","sub":"Financial educators","text":"Financial educators: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N03_S3","alt":{"meta":"For financial educators spending fifty thousand dollars or more a month on Meta"}},{"key":"N04-S3","type":"N","label":"N04","sub":"Ecommerce brands","text":"Ecommerce brands: spending fifty thousand dollars or more a month on Meta?","into":"","file":"F2_N04_S3","alt":{"meta":"For ecommerce brands spending fifty thousand dollars or more a month on Meta"}}]}]};
+var KEY='adm-film-'+D.code+'-'+D.name, done={}, at=0, open=false;
+try{ done=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ done={}; }
+function save(){ try{ localStorage.setItem(KEY,JSON.stringify(done)); }catch(e){} }
+function $(id){ return document.getElementById(id); }
+var V='orig';
+try{ V=localStorage.getItem(KEY+'-v')||'orig'; }catch(e){}
+var VERS=D.versions||[];
+if(!VERS.some(function(x){return x.id===V;})) V='orig';
+function versions(redraw){
+  var box=$('vers'); if(VERS.length<2) return;
+  box.hidden=false; box.textContent='';
+  VERS.forEach(function(x){
+    var b=document.createElement('button'); b.type='button'; b.textContent=x.label; b.setAttribute('aria-pressed',x.id===V?'true':'false');
+    b.onclick=function(){ V=x.id; try{ localStorage.setItem(KEY+'-v',V); }catch(e){} versions(redraw); redraw(); };
+    box.appendChild(b);
+  });
+  $('vnote').hidden=V==='orig';
+}
+function tx(c){ return (V!=='orig'&&c.alt&&c.alt[V])||c.text; }
+function el(tag,cls,text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+var flat=[]; D.groups.forEach(function(g){ g.clips.forEach(function(c){ flat.push({c:c,g:g}); }); });
+function doneCount(){ return flat.filter(function(x){return done[x.c.key];}).length; }
+function list(){
+  var root=$('list'), part=0; root.textContent='';
+  D.groups.forEach(function(g){
+    if(g.part!==part){ part=g.part; root.appendChild(el('h3','',part===1?'Part 1: bodies and CTAs':'Part 2: hooks')); }
+    var box=el('section','sess'), hd=el('div','sess-h'), b=el('b');
+    b.appendChild(el('span','tag',g.chip)); b.appendChild(document.createTextNode(g.setup));
+    hd.appendChild(b); hd.appendChild(el('span','n',g.clips.length+(g.clips.length===1?' clip':' clips'))); box.appendChild(hd);
+    g.clips.forEach(function(c){
+      var row=el('label','clip'+(done[c.key]?' done':'')), cb=el('input'), d=el('div');
+      cb.type='checkbox'; cb.checked=!!done[c.key];
+      cb.onchange=function(){ if(cb.checked) done[c.key]=1; else delete done[c.key]; save(); list(); };
+      d.appendChild(el('div','txt',tx(c)));
+      if(c.into){ var i=el('div','into','cuts to '); i.appendChild(el('b','',c.into)); d.appendChild(i); }
+      d.appendChild(el('div','fn',c.file+(c.sub?' · '+c.sub:'')));
+      row.appendChild(cb); row.appendChild(el('span','chip '+c.type,c.label)); row.appendChild(d); box.appendChild(row);
+    });
+    root.appendChild(box);
+  });
+  $('sub').textContent='total ads from '+flat.length+' clips · about '+D.time+' of filming'+(D.presenter?' · on camera: '+D.presenter:'')+' · '+doneCount()+' filmed';
+}
+function draw(){
+  var it=flat[at], c=it.c, g=it.g, prev=at>0?flat[at-1]:null;
+  $('where').textContent=''; $('where').appendChild(document.createTextNode((g.part===1?'Part 1 · ':'Part 2 · ')));
+  $('where').appendChild(el('em','',g.chip+' '+g.setup)); if(!prev||prev.g!==g) $('where').appendChild(document.createTextNode(' · new setup'));
+  $('count').textContent='Clip '+(at+1)+' of '+flat.length+' · '+doneCount()+' filmed';
+  $('bar').style.width=Math.round(100*doneCount()/flat.length)+'%';
+  $('fid').textContent=c.label;
+  $('ffile').textContent=c.file+(c.sub?' · '+c.sub:'')+(c.into?' · cuts to '+c.into:'')+(done[c.key]?' · already filmed':'');
+  $('ftext').textContent=tx(c);
+  $('back').disabled=at===0; $('skip').disabled=at>=flat.length-1;
+}
+function show(v){ open=v; $('film').hidden=!v; if(v){ draw(); $('next').focus(); } else list(); }
+$('start').onclick=function(){ var i; at=0; for(i=0;i<flat.length;i++){ if(!done[flat[i].c.key]){ at=i; break; } } show(true); };
+$('close').onclick=function(){ show(false); };
+$('back').onclick=function(){ if(at>0){ at--; draw(); } };
+$('skip').onclick=function(){ if(at<flat.length-1){ at++; draw(); } };
+$('next').onclick=function(){ done[flat[at].c.key]=1; save(); if(at>=flat.length-1) show(false); else { at++; draw(); } };
+document.addEventListener('keydown',function(e){
+  if(!open) return;
+  if(e.key==='Escape') show(false);
+  else if(e.key==='ArrowRight'&&at<flat.length-1){ at++; draw(); }
+  else if(e.key==='ArrowLeft'&&at>0){ at--; draw(); }
+});
+document.title=D.name+' · shooting schedule';
+$('name').textContent=D.name; $('total').textContent=String(D.total);
+$('start').disabled=!flat.length;
+versions(list);
+list();
+})();
+</script>
+</body>
+</html>
