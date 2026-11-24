@@ -2,15 +2,15 @@
  {
   "slug": "f1",
   "name": "ISFY Funnel 1: The Dead List",
-  "updated": "2026-11-24T08:01:41Z",
+  "updated": "2026-11-24T08:16:45Z",
   "updated_label": "24 Nov 2026",
   "film": {
-   "total": 315,
-   "clips": 28,
-   "time": "1 h 24 min"
+   "total": 378,
+   "clips": 31,
+   "time": "1 h 26 min"
   },
   "copy": {
-   "sets": 11
+   "sets": 66
   }
  }
 ]
