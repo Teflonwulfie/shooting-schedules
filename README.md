@@ -1,5 +1,5 @@
 # shooting-schedules
 
-Filming pages, one per product. Open the site, pick a product, press Start filming.
+One filming page and one primary copy page per product. Open the site, pick a product, then choose Filming schedule or Primary copy.
 
-To add or update a page: `python3 tools/publish.py <file saved by "Download filming page">`, then commit and push.
+To add or update pages: `python3 tools/publish.py <files saved by the Ad Multiplier app>`, then commit and push.
