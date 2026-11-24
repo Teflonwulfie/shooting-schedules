@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Primary copy</title>
+<style>
+:root{--paper:#eef1f3;--surface:#fff;--ink:#141a20;--muted:#55616d;--line:#cdd5db;--slate:#141a20;--slate-ink:#f3f5f6;--slate-muted:#a3aeb8;--slate-line:#2c3640;--accent:#f0bf2c;--accent-ink:#1a1503}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 15px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif}
+button{font:inherit;cursor:pointer}
+.hdr{background:var(--slate);color:var(--slate-ink);padding:16px}
+.in{max-width:860px;margin:0 auto}
+h1{font-size:24px;margin:0 0 6px;font-weight:800}
+.hero b{font-size:34px;font-weight:800}
+.hero span{color:var(--slate-muted)}
+.hint{color:var(--slate-muted);max-width:70ch;margin:8px 0 14px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:6px;padding:7px 12px;font-weight:600}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.hdr .btn{padding:9px 16px}
+.btn[hidden]{display:none}
+main{padding:16px 16px 70px}
+.set{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-bottom:14px}
+.set h2{font:600 13px/1.3 ui-monospace,Consolas,monospace;margin:0 0 10px;color:var(--muted);overflow-wrap:anywhere}
+.lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:12px 0 4px}
+.txt{font-family:Georgia,"Times New Roman",serif;font-size:16px;white-space:pre-wrap;overflow-wrap:anywhere;border-left:3px solid var(--line);padding-left:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--slate);color:var(--slate-ink);border-radius:8px;padding:9px 14px;font-size:14px;max-width:calc(100% - 32px)}
+.toast[hidden]{display:none}
+</style>
+</head>
+<body>
+<div class="hdr"><div class="in">
+  <h1 id="name"></h1>
+  <div class="hero"><b id="total"></b> <span id="sub"></span></div>
+  <p class="hint">Each ad below has its primary text, headline and description. Copy the piece you need, or download the ad as a Word document.</p>
+  <button class="btn primary" id="all" type="button" hidden>Download all as Word docs</button>
+</div></div>
+<main><div class="in" id="list"></div></main>
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+(function(){
+var D={"kind":"copy","name":"ISFY Funnel 1: The Dead List","code":"F1","sets":[{"name":"F1_P01_T1_C1","primary":"Is your CRM full of undead zombies?\n\nI'm talking about the thousands of names who bought something from you once, or asked about it, and then went quiet.\n\nThe guy who bought your first program two years ago.\n\nThe woman who booked a call and never showed up.\n\nThe lead who opted in, got dropped on an autoresponder, and never heard another peep.\n\nMost businesses give up on a lead after five tries, so those names just sit there, slowly turning into zombies.\n\nWell, here's how to shock them back to life and get them paying you cash hand over fist.\n\nMy name's Rohan Sheth, co-founder of GrowRev.\n\nWe've worked with over 200 businesses, including Tony Robbins and Dean Graziosi, managed more than $400 million in ad spend, and helped our clients bring in over $2 billion in revenue.\n\nAnd we built the Unclaimed Sales Machine to do one thing: pull the cash out of a dead list.\n\nSo here's my promise. We'll pull at least $10,000 in cold hard cash out of the zombie names already on your list in the next 30 days, or you don't pay us a dime.\n\nGot a list of 10,000 or more? Click below and let's go wake them up.","headline":"Shock Them Back To Life. $10K In 30 Days.","desc":"For businesses with a 10,000+ list","niche":""},{"name":"F1_P02_T2_C2","primary":"81% of businesses give up on a lead after five tries. Their CRMs are sitting on a mountain of unclaimed cash.\n\nAnd 77% of leads never even get a follow-up at all.\n\nSo where do all those names go? Nowhere.\n\nThey sit in your CRM, slowly turning into zombies, while everyone's busy chasing the sugar high of new leads and new sales.\n\nBut what if there's more cash hiding in the deadest names in your CRM right now than a new winning campaign could ever make you?\n\nMy name's Rohan Sheth, co-founder of GrowRev.\n\nFor over a decade we've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, managed over $400 million in ad spend, and helped our clients generate more than $2 billion in revenue.\n\nAnd the Unclaimed Sales Machine is how we find the cash hiding in a dead list and pull it back out.\n\nIn fact, we'll pull at least $10,000 in cold hard cash out of the dead names already on your list in the next 30 days, or you don't pay us a dime.\n\nGot a list of 10,000 or more? Click below and find out how much is hiding in yours.","headline":"How Much Cash Is Hiding In Your List?","desc":"Estimate, based on published data","niche":""},{"name":"F1_P03_T3_C3","primary":"Stop chasing new leads. The deadest names in your CRM are worth more than your next ad campaign.\n\nI know that sounds backwards, so let me explain.\n\nMost businesses give up on a lead after five tries, and 77% of leads never get a follow-up at all.\n\nThose people don't disappear. They sit in your CRM, slowly turning into zombies.\n\nThe guy who bought your first program two years ago.\n\nThe woman who booked a call and never showed up.\n\nThe lead who opted in, got dropped on an autoresponder, and never heard another peep.\n\nAnd the thing is, every one of them already raised their hand. Some of them already paid you.\n\nThat's why we built the Unclaimed Sales Machine, a proprietary method for shocking those names back to life and pulling the cash out.\n\nMy name's Rohan Sheth, co-founder of GrowRev. We've worked with over 200 businesses, including Tony Robbins and Dean Graziosi, and helped our clients generate more than $2 billion in revenue.\n\nAnd I'll prove it on your list. We'll pull at least $10,000 in cold hard cash out of your dead names in the next 30 days, or you don't pay us a dime.\n\nGot a list of 10,000 or more? Click below and let's go get it.","headline":"Get $10K In 30 Days Or You Don't Pay","desc":"For businesses with a 10,000+ list","niche":""},{"name":"F1_P04_T4_C4","primary":"What if the leads you gave up on two years ago are the easiest money you'll make this month?\n\nThink about it.\n\nThey already know who you are. They already raised their hand. Some of them already paid you once.\n\nThe only reason they went quiet is that nobody ever called them back.\n\nMost businesses give up on a lead after five tries, and 77% of leads never get a follow-up at all.\n\nSo those names sit in your CRM for years, turning into zombies, while you spend a fortune chasing strangers.\n\nMy name's Rohan Sheth, co-founder of GrowRev.\n\nWe've worked with over 200 businesses, including Tony Robbins and Dean Graziosi, managed more than $400 million in ad spend, and helped our clients bring in over $2 billion in revenue.\n\nAnd we built the Unclaimed Sales Machine to go back for the names everyone else forgot.\n\nHere's the deal. We'll pull at least $10,000 in cold hard cash out of the dead names already on your list in the next 30 days, or you don't pay us a dime.\n\nGot a list of 10,000 or more? Click below and let's go get your money.","headline":"Pull $10K+ Out Of Your Dead List Now","desc":"For businesses with a 10,000+ list","niche":""},{"name":"F1_P05_T5_C5","primary":"I'll find at least $10,000 hiding in your email list in 30 days or you pay nothing.\n\nI've built a revolutionary Unclaimed Sales Machine designed specifically to pull mountains of cash out of YOUR list, from the most zombified, dead-as-a-doornail names in your CRM you thought were a lost cause.\n\nI'll have those dead names shocked back to life and climbing over themselves to hand you their hard-earned cash in just 30 days, or you pay nothing and I go broke.\n\nWant to take me up on the challenge? Let my team and I find your $10k. Click below.","headline":"Cash Hiding In Your List","desc":"Risk-free, or you pay $0","niche":""},{"name":"F1_P06_T6_C6","primary":"Is your CRM full of undead zombies?\n\nI'm talking about the thousands of names who bought something from you once, or asked about it, and then went quiet. Here's how to shock them back to life and get them paying you cash hand over fist.\n\nMy name's Rohan Sheth, and I'm the co-founder of GrowRev. Over the last decade we've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, managed over $400 million in ad spend, and helped our clients bring in more than $2 billion in revenue.\n\nAnd believe it or not, we've found there's usually more money sitting in a client's dead list than there is in a brand new ad campaign.\n\nSo we built the Unclaimed Sales Machine to go get it.\n\nAnd here's my promise. We'll have your coffers filled with at least $10,000 in cold hard cash from the dead names that are already on your list, in just 30 days, or you pay us absolutely nothing.\n\nGot a list of 10,000 or more? Click below and let's go wake them up.","headline":"Wake Up Your Dead Leads","desc":"Shock old names back to life","niche":""},{"name":"F1_P07_T5_C7","primary":"10,000+ on your email list? Stop chasing new leads and new sales right now.\n\nI've built a revolutionary Unclaimed Sales Machine designed specifically to pull mountains of cash out of YOUR list, from the most zombified, dead-as-a-doornail names in your CRM you thought were a lost cause.\n\nI'll have those dead names shocked back to life and climbing over themselves to hand you their hard-earned cash in just 30 days, or you pay nothing and I go broke.\n\nSo if you're ready to locate the mountain of unclaimed sales in your CRM, click below and we'll get to work shocking your list back to life.","headline":"Mine The Deadest Names","desc":"Pull cash out of your CRM","niche":""},{"name":"F1_P08_T6_C1","primary":"Know what this is? A 10,000-name email list, and every name is worth about $17.\n\nI'm talking about the thousands of names who bought something from you once, or asked about it, and then went quiet. Here's how to shock them back to life and get them paying you cash hand over fist.\n\nMy name's Rohan Sheth, and I'm the co-founder of GrowRev. Over the last decade we've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, managed over $400 million in ad spend, and helped our clients bring in more than $2 billion in revenue.\n\nAnd believe it or not, we've found there's usually more money sitting in a client's dead list than there is in a brand new ad campaign.\n\nSo we built the Unclaimed Sales Machine to go get it.\n\nAnd here's my promise. We'll have your coffers filled with at least $10,000 in cold hard cash from the dead names that are already on your list, in just 30 days, or you pay us absolutely nothing.\n\nGot a list of 10,000 or more? Click below and let's go wake them up.","headline":"Your List Is Worth More","desc":"Every name is worth $17","niche":""},{"name":"F1_P09_T7_C2","primary":"81% of businesses give up on a lead after five tries.\n\nHere are the facts.\n\n81% of businesses give up on a lead after just 5 tries.\n\n77% of leads never even get a follow-up at all.\n\nAnd most businesses are so obsessed with getting new leads and new sales, they let those old leads die, rot, and zombify.\n\nBut what if I told you there's more cash-in-hand sales hiding in the rotting nether regions of your CRM right now than a new winning campaign could ever make you?\n\nIn fact, I'm so confident in that, my team and I PROMISE to pull at least $10k in cold, hard cash straight out of the dead names on your list in just the next 30 days, or you don't pay us a dime.\n\nWho are we?\n\nMy name's Rohan Sheth, co-founder of GrowRev. For over a decade we've been one of the most sought after performance marketing companies in the world. We've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, we've managed over $400 million in ad spend, and we've helped our clients generate more than $2 billion in revenue.\n\nGot a list of 10,000 or more? Click below and find out how much is hiding in yours.","headline":"Unclaimed Cash In Your CRM","desc":"Their CRMs hold a mountain","niche":""},{"name":"F1_P10_T5_C3","primary":"Stop chasing new leads. Your deadest CRM names are worth more than your next ad campaign.\n\nI've built a revolutionary Unclaimed Sales Machine designed specifically to pull mountains of cash out of YOUR list, from the most zombified, dead-as-a-doornail names in your CRM you thought were a lost cause.\n\nI'll have those dead names shocked back to life and climbing over themselves to hand you their hard-earned cash in just 30 days, or you pay nothing and I go broke.\n\nGot a list of 10,000 or more? Click below and let's go get it.","headline":"Beat Your Next Campaign","desc":"Dead names, real cash","niche":""},{"name":"F1_P11_T6_C4","primary":"What if the leads you gave up on two years ago are the easiest money you'll make this month?\n\nI'm talking about the thousands of names who bought something from you once, or asked about it, and then went quiet. Here's how to shock them back to life and get them paying you cash hand over fist.\n\nMy name's Rohan Sheth, and I'm the co-founder of GrowRev. Over the last decade we've worked with more than 200 businesses, including Tony Robbins and Dean Graziosi, managed over $400 million in ad spend, and helped our clients bring in more than $2 billion in revenue.\n\nAnd believe it or not, we've found there's usually more money sitting in a client's dead list than there is in a brand new ad campaign.\n\nSo we built the Unclaimed Sales Machine to go get it.\n\nAnd here's my promise. We'll have your coffers filled with at least $10,000 in cold hard cash from the dead names that are already on your list, in just 30 days, or you pay us absolutely nothing.\n\nGot a list of 10,000 or more? Click below and let's go get your money.","headline":"Easiest Money This Month","desc":"Revisit the leads you dropped","niche":""}]};
+var KEY='adm-copy-'+D.code;
+function $(id){ return document.getElementById(id); }
+function el(tag,cls,text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+var tt=null;
+function toast(t){ var x=$('toast'); x.textContent=t; x.hidden=false; clearTimeout(tt); tt=setTimeout(function(){ x.hidden=true; },2200); }
+function copy(text,what){
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.left='-9999px'; document.body.appendChild(ta); ta.select();
+    var ok=false; try{ ok=document.execCommand('copy'); }catch(e){} document.body.removeChild(ta);
+    toast(ok?what+' copied':'Copy was blocked. Select the text and copy it by hand.');
+  }
+  try{ navigator.clipboard.writeText(text).then(function(){ toast(what+' copied'); },fallback); }catch(e){ fallback(); }
+}
+function esc(t){ return String(t).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function paras(s){
+  var out=[{t:s.name+(s.niche?' ('+s.niche+')':''),b:true,sz:26}];
+  s.primary.split(/\n\s*\n/).forEach(function(t,i){ t=t.replace(/\s*\n\s*/g,' ').trim(); if(t) out.push({t:(i===0?'Hook: ':'')+t}); });
+  if(s.headline) out.push({t:'Headline: '+s.headline});
+  if(s.desc) out.push({t:'Description: '+s.desc});
+  return out;
+}
+function docx(s){
+  var body=paras(s).map(function(q){
+    var sz=q.sz||22;
+    return '<w:p><w:pPr><w:spacing w:after="160" w:line="276" w:lineRule="auto"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Georgia" w:hAnsi="Georgia" w:cs="Georgia"/>'+(q.b?'<w:b/>':'')+
+      '<w:sz w:val="'+sz+'"/><w:szCs w:val="'+sz+'"/></w:rPr><w:t xml:space="preserve">'+esc(q.t)+'</w:t></w:r></w:p>';
+  }).join('');
+  var X='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>', zip=new JSZip();
+  zip.file('[Content_Types].xml',X+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>');
+  zip.file('_rels/.rels',X+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>');
+  zip.file('word/document.xml',X+'<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>'+body+
+    '<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/></w:sectPr></w:body></w:document>');
+  return zip;
+}
+function save(blob,name){
+  var a=document.createElement('a'), url=URL.createObjectURL(blob);
+  a.href=url; a.download=name; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); },4000);
+}
+var WORD='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+var canWord=typeof JSZip!=='undefined';
+function one(s){ docx(s).generateAsync({type:'blob',mimeType:WORD}).then(function(b){ save(b,s.name+'.docx'); toast('Saved '+s.name+'.docx'); }); }
+function all(){
+  var outer=new JSZip(), i=0;
+  (function next(){
+    if(i>=D.sets.length){ outer.generateAsync({type:'blob'}).then(function(b){ save(b,D.code+'_primary_copy_docs.zip'); toast('Saved '+D.sets.length+' Word docs in one zip'); }); return; }
+    var s=D.sets[i++]; docx(s).generateAsync({type:'uint8array'}).then(function(u){ outer.file(s.name+'.docx',u); next(); });
+  })();
+}
+function btn(text,fn,primary){ var b=el('button','btn'+(primary?' primary':''),text); b.type='button'; b.onclick=fn; return b; }
+var root=$('list');
+D.sets.forEach(function(s){
+  var box=el('section','set'), row=el('div','row');
+  box.appendChild(el('h2','',s.name+(s.niche?' · '+s.niche:'')));
+  box.appendChild(el('div','lbl','Primary text')); box.appendChild(el('div','txt',s.primary));
+  if(s.headline){ box.appendChild(el('div','lbl','Headline')); box.appendChild(el('div','txt',s.headline)); }
+  if(s.desc){ box.appendChild(el('div','lbl','Description')); box.appendChild(el('div','txt',s.desc)); }
+  row.appendChild(btn('Copy primary text',function(){ copy(s.primary,'Primary text'); },true));
+  if(s.headline) row.appendChild(btn('Copy headline',function(){ copy(s.headline,'Headline'); }));
+  if(s.desc) row.appendChild(btn('Copy description',function(){ copy(s.desc,'Description'); }));
+  if(canWord) row.appendChild(btn('Download Word doc',function(){ one(s); }));
+  box.appendChild(row); root.appendChild(box);
+});
+document.title=D.name+' · primary copy';
+$('name').textContent=D.name; $('total').textContent=String(D.sets.length);
+$('sub').textContent=(D.sets.length===1?'ad':'ads')+' of primary copy';
+if(canWord&&D.sets.length){ $('all').hidden=false; $('all').onclick=all; }
+})();
+</script>
+</body>
+</html>
